@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: SpringBootBugs
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: tsvetan
+Implementation-Vendor-Id: SpringBootBugs
+Build-Jdk: 1.8.0_151
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/SpringBootBugs
+Created-By: Maven Integration for Eclipse
+
