@@ -1,48 +1,42 @@
 package controllers;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BugService {
 
-	private List<Bug> bugList = new ArrayList<>(
-			Arrays.asList(new Bug("bug1", "bug1 desc"),new Bug("bug2", "bug2 desc"))
-			);
+	@Autowired
+	private BugRepository bugRepository;
 
 	public List<Bug> getBugList() {
-		return bugList;
+		return bugRepository.getAll();
 	}
 
-	public void setBugList(List<Bug> bugList) {
-		this.bugList = bugList;
+	public UUID addBug(Bug bug) {
+		bugRepository.add(bug);
+		return bug.getId();
 	}
 
-	public String addBug(Bug bug) {
-		bugList.add(new Bug(bug.getTitle(), bug.getDescription()));
-		int index = bugList.indexOf(bug);
-		return bugList.get(index).getId();
-	}
-	
-	public Bug findById(String id) {
-		for (Bug bug : bugList) {
-			if(bug.getId().equals(id)) {
-				return bug;
-			}
+	public Optional<Bug> findById(UUID id) {
+		Bug bug;
+
+		try {
+			bug = bugRepository.getById(id);
+		} catch (NoSuchElementException e) {
+			return Optional.empty();
 		}
-		
-		return null;
+
+		return Optional.ofNullable(bug);
 	}
-	
-	public void deleteBug(String id) {
-		for (Bug bug : bugList) {
-			if(bug.getId().equals(id)) {
-				bugList.remove(bug);
-			}
-		}
+
+	public void deleteBug(UUID id) {
+		bugRepository.delete(id);
 	}
 
 }
