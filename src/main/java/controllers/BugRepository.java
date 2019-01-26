@@ -17,16 +17,17 @@ public class BugRepository {
 
 	@PostConstruct
 	private void init() {
+		System.out.println("enters");
 		Bug bug = Bug.builder()
 				.id(UUID.randomUUID())
 				.title("Bug title")
 				.description("bug description...")
 				.build();
 
-		List<Bug> bugs = new ArrayList<Bug>();
-		bugs.add(bug);
-		bugs.add(bug);
-		bugs.add(bug);
+//		List<Bug> bugs = new ArrayList<Bug>();
+		repository.add(bug);
+		repository.add(bug);
+		repository.add(bug);
 	}
 
 	public List<Bug> getAll() {
