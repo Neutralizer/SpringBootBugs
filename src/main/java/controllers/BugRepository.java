@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.UUID;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.stereotype.Repository;
 
 //TODO add class documentation.
@@ -15,16 +13,13 @@ public class BugRepository {
 
 	private List<Bug> repository = new ArrayList<Bug>();
 
-	@PostConstruct
-	private void init() {
-		System.out.println("enters");
+	{
 		Bug bug = Bug.builder()
 				.id(UUID.randomUUID())
 				.title("Bug title")
 				.description("bug description...")
 				.build();
 
-//		List<Bug> bugs = new ArrayList<Bug>();
 		repository.add(bug);
 		repository.add(bug);
 		repository.add(bug);
