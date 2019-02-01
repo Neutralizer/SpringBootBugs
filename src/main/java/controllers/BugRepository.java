@@ -7,6 +7,8 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
+import pojo.Bug;
+
 //TODO add class documentation.
 @Repository
 public class BugRepository {

@@ -13,8 +13,8 @@ import java.util.UUID;
 import org.junit.Before;
 import org.junit.Test;
 
-import controllers.Bug;
 import controllers.BugRepository;
+import pojo.Bug;
 
 public class TestBugRepository {
 	BugRepository b;

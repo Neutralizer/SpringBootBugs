@@ -1,4 +1,4 @@
-package controllers;
+package pojo;
 
 import java.util.UUID;
 
