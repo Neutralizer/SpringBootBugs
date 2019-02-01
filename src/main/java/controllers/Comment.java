@@ -1,31 +1,27 @@
 package controllers;
 
+import java.util.List;
 import java.util.UUID;
 
+import controllers.Bug.BugBuilder;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Comment {
 
-	private String id;
+	private UUID id;
 	private String text;
 
-	public Comment() {
-		// default
-	}
-
-	public Comment(String text) {
-		this.id = UUID.randomUUID().toString();
-		this.text = text;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	public void setText(String text) {
-		this.text = text;
-	}
+//	public Comment(String text) {
+//		this.id = UUID.randomUUID();
+//		this.text = text;
+//	}
 
 }
