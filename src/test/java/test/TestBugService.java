@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -17,7 +16,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.mockito.stubbing.Answer;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import controllers.Bug;
@@ -52,9 +50,7 @@ public class TestBugService {
 		Mockito.when(bugRepository.getAll()).thenReturn(Arrays.asList(new Bug(), new Bug(), new Bug()));
 
 		List<Bug> bugList = bugService.getBugList();
-
 		assertEquals(3, bugList.size());
-
 	}
 
 	@Test
@@ -66,9 +62,8 @@ public class TestBugService {
 		UUID randomUUID = UUID.randomUUID();
 
 		UUID bugId = bugService.addBug(Bug.builder().id(randomUUID).build());
-		
-		assertEquals(randomUUID, bugId);
 
+		assertEquals(randomUUID, bugId);
 	}
 
 	@Test
@@ -78,7 +73,6 @@ public class TestBugService {
 		Bug bug = bugService.findById(Mockito.any());
 
 		assertNotNull(bug);
-
 	}
 
 	@Test
@@ -89,7 +83,6 @@ public class TestBugService {
 		Bug bug = bugService.findById(randomUUID);
 
 		assertEquals(randomUUID, bug.getId());
-
 	}
 
 	@Test
@@ -99,7 +92,6 @@ public class TestBugService {
 		Bug bug = bugService.findById(UUID.randomUUID());
 
 		assertNull(bug);
-
 	}
 
 	@Test
@@ -109,7 +101,6 @@ public class TestBugService {
 		}).when(bugRepository).delete(Mockito.any());
 
 		bugService.deleteBug(UUID.randomUUID());
-
 	}
 
 }
