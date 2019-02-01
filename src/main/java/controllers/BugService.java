@@ -23,16 +23,16 @@ public class BugService {
 		return bug.getId();
 	}
 
-	public Optional<Bug> findById(UUID id) {
+	public Bug findById(UUID id) {
 		Bug bug;
 
 		try {
 			bug = bugRepository.getById(id);
 		} catch (NoSuchElementException e) {
-			return Optional.empty();
+			return null;
 		}
 
-		return Optional.ofNullable(bug);
+		return bug;
 	}
 
 	public void deleteBug(UUID id) {

@@ -33,14 +33,14 @@ public class BugController {
 
 	@GetMapping(value = "/bug/{bugId}")
 	public Bug getBugById(@PathVariable UUID bugId) {
-		Optional<Bug> bug = bugService.findById(bugId);
+		Bug bug = bugService.findById(bugId);
 
-		if (!bug.isPresent()) {
+		if (bug == null) {
 			//return empty object if bug with this id is not found
 			return new Bug();
 		}
 
-		return bug.get();
+		return bug;
 	}
 
 	@DeleteMapping("/bug/{bugId}")
