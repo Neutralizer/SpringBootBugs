@@ -110,7 +110,7 @@ public class TestCommentSerivce {
 
 		assertEquals(3, bug.getComments().size());
 	}
-	
+
 	@Test
 	public void testGetCommentByIdManyCommentsPresent() {
 		ArrayList<Comment> list = new ArrayList<>();
@@ -124,13 +124,13 @@ public class TestCommentSerivce {
 		Bug bug = Bug.builder().id(UUID.randomUUID()).title("sss").comments(list).build();
 
 		Mockito.when(bugRepository.getById(bug.getId())).thenReturn(bug);
-		
+
 		Comment commentResult = commentService.getCommentById(bug.getId(), comment2.getId());
 
 		assertEquals(comment2.getId(), commentResult.getId());
-		
+
 	}
-	
+
 	@Test
 	public void testGetCommentByIdNotFound() {
 
@@ -145,12 +145,30 @@ public class TestCommentSerivce {
 		Bug bug = Bug.builder().id(UUID.randomUUID()).title("sss").comments(list).build();
 
 		Mockito.when(bugRepository.getById(bug.getId())).thenReturn(bug);
-		
+
 		Comment commentResult = commentService.getCommentById(bug.getId(), UUID.randomUUID());
 
 		assertNull(commentResult);
-	
+
 	}
-	
+
+	@Test
+	public void testDeleteComment() {
+
+		ArrayList<Comment> list = new ArrayList<>();
+		Comment comment1 = Comment.builder().id(UUID.randomUUID()).text("comment text1").build();
+		Comment comment2 = Comment.builder().id(UUID.randomUUID()).text("comment text2").build();
+		Comment comment3 = Comment.builder().id(UUID.randomUUID()).text("comment text3").build();
+		list.add(comment1);
+		list.add(comment2);
+		list.add(comment3);
+		Bug bug = Bug.builder().id(UUID.randomUUID()).title("sss").comments(list).build();
+
+		Mockito.when(bugRepository.getById(bug.getId())).thenReturn(bug);
+
+		commentService.deleteComment(bug.getId(), comment2.getId());
+
+		assertEquals(2, bug.getComments().size());
+	}
 
 }
