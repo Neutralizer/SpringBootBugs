@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import controllers.BugRepository;
+import pojo.Bug;
 import pojo.Comment;
 
 @Service
@@ -21,7 +22,9 @@ public class CommentService {
 
 	public UUID addComment(UUID bugId, String commentText) {
 		Comment comment = Comment.builder().id(UUID.randomUUID()).text(commentText).build();
-		bugRepository.getById(bugId).getComments().add(comment);
+		Bug bug = bugRepository.getById(bugId);
+		List<Comment> comments = bug.getComments();
+		bug.addComment(comment);
 		return comment.getId();
 	}
 
