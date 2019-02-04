@@ -23,7 +23,6 @@ public class CommentService {
 	public UUID addComment(UUID bugId, String commentText) {
 		Comment comment = Comment.builder().id(UUID.randomUUID()).text(commentText).build();
 		Bug bug = bugRepository.getById(bugId);
-		List<Comment> comments = bug.getComments();
 		bug.addComment(comment);
 		return comment.getId();
 	}
