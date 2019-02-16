@@ -41,15 +41,4 @@ public class CommentController {
 		commentService.deleteComment(bugId, commentId);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

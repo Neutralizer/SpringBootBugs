@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+//import mail.EmailServiceImpl;
 import pojo.Bug;
 import service.BugService;
 
@@ -38,7 +39,7 @@ public class BugController {
 		Bug bug = bugService.findById(bugId);
 
 		if (bug == null) {
-			//return empty object if bug with this id is not found
+			// return empty object if bug with this id is not found
 			return new Bug();
 		}
 
@@ -49,5 +50,17 @@ public class BugController {
 	public void deleteBug(@PathVariable UUID bugId) {
 		bugService.deleteBug(bugId);
 	}
+
+//	@PostMapping(value = "/sendemail")
+//	public String sendEmail() {
+//		processEmail();
+//		return "Email sent successfully";
+//	}
+//
+//	private void processEmail() {
+//		EmailServiceImpl obj = new EmailServiceImpl();
+//		obj.sendSimpleMessage("gamemashine@mail.bg", "rest mail", "first mail");
+//		
+//	}
 
 }
