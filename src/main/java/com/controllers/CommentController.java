@@ -1,4 +1,4 @@
-package controllers;
+package com.controllers;
 
 import java.util.List;
 import java.util.UUID;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import pojo.Comment;
-import service.CommentService;
+import com.pojo.Comment;
+import com.service.CommentService;
 
 @Controller
 public class CommentController {

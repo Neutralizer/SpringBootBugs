@@ -18,9 +18,9 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import controllers.BugRepository;
-import pojo.Bug;
-import service.BugService;
+import com.controllers.BugRepository;
+import com.pojo.Bug;
+import com.service.BugService;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestBugService {

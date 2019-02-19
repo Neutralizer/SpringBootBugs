@@ -12,8 +12,8 @@ import java.util.UUID;
 import org.junit.Before;
 import org.junit.Test;
 
-import controllers.BugRepository;
-import pojo.Bug;
+import com.controllers.BugRepository;
+import com.pojo.Bug;
 
 public class TestBugRepository {
 	BugRepository b;

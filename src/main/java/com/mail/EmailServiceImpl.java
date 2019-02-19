@@ -1,4 +1,5 @@
-//package mail;
+package com.mail;
+//package com.mail;
 //
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.mail.SimpleMailMessage;

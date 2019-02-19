@@ -17,10 +17,10 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import controllers.BugRepository;
-import pojo.Bug;
-import pojo.Comment;
-import service.CommentService;
+import com.controllers.BugRepository;
+import com.pojo.Bug;
+import com.pojo.Comment;
+import com.service.CommentService;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestCommentSerivce {

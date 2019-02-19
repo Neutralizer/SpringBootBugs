@@ -1,4 +1,4 @@
-package service;
+package com.service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -7,8 +7,8 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import controllers.BugRepository;
-import pojo.Bug;
+import com.controllers.BugRepository;
+import com.pojo.Bug;
 
 @Service
 public class BugService {

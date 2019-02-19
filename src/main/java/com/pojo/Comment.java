@@ -1,4 +1,4 @@
-package pojo;
+package com.pojo;
 
 import java.util.UUID;
 
@@ -17,7 +17,7 @@ public class Comment {
 	private UUID id;
 	private String text;
 
-//	public Comment(String text) {
+//	public Comment(String text) {//handled in bug
 //		this.id = UUID.randomUUID();
 //		this.text = text;
 //	}

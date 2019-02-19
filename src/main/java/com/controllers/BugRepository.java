@@ -1,4 +1,4 @@
-package controllers;
+package com.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
-import pojo.Bug;
+import com.pojo.Bug;
 
 //TODO add class documentation.
 @Repository
