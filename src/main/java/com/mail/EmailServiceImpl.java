@@ -16,6 +16,7 @@ public class EmailServiceImpl {
 	public void sendSimpleMessage(String to, String subject, String text) {
 
 		SimpleMailMessage message = new SimpleMailMessage();
+		message.setFrom("mymail546@abv.bg");
 		message.setTo(to);
 		message.setSubject(subject);
 		message.setText(text);
