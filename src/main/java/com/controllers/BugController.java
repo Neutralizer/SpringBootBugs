@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mail.EmailServiceImpl;
 import com.pojo.Bug;
 import com.service.BugService;
 
@@ -22,6 +23,9 @@ public class BugController {
 
 	@Autowired
 	private BugService bugService;
+	
+	@Autowired
+	private EmailServiceImpl emailServiceImpl;
 
 	@GetMapping(value = "/bug")
 	public List<Bug> getAllBugs() {
@@ -50,16 +54,10 @@ public class BugController {
 		bugService.deleteBug(bugId);
 	}
 
-//	@PostMapping(value = "/sendemail")
-//	public String sendEmail() {
-//		processEmail();
-//		return "Email sent successfully";
-//	}
-//
-//	private void processEmail() {
-//		EmailServiceImpl obj = new EmailServiceImpl();
-//		obj.sendSimpleMessage("gamemashine@com.mail.bg", "rest com.mail", "first com.mail");
-//		
-//	}
+	@PostMapping(value = "/sendemail")
+	public String sendEmail() {
+		emailServiceImpl.sendSimpleMessage("mymail546@abv.bg", "rest com.mail", "first com.mail");
+		return "Email sent successfully";
+	}
 
 }
